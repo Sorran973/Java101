@@ -1,4 +1,4 @@
-package ru.artembulkhak.leetcode;
+package ru.artembulkhak.leetcode.HashMap;
 
 import java.util.*;
 
@@ -7,6 +7,24 @@ import java.util.*;
  */
 
 public class FindTheDifference {
+
+    public char findTheDifferenceASCII(String s, String t) {
+        List<Integer> listS = new ArrayList<>();
+        List<Integer> listT = new ArrayList<>();
+        int i = 0;
+        while (i < s.length()) {
+            listS.add(s.charAt(i) - 'a');
+            listT.add(t.charAt(i) - 'a');
+            i++;
+        }
+        listT.add(t.charAt(i) - 'a');
+
+        for (int j = 0; j < listS.size(); j++) {
+            listT.remove(listS.get(j));
+        }
+
+        return (char) (listT.get(0) + 'a');
+    }
 
     public char findTheDifferenceSorting(String s, String t) {
         char[] firstArray = s.toCharArray();
@@ -44,6 +62,6 @@ public class FindTheDifference {
     }
 
     public static void main(String[] args) {
-        System.out.println(new FindTheDifference().findTheDifferenceSorting("abcd", "abcde"));
+        System.out.println(new FindTheDifference().findTheDifferenceASCII("a", "aa"));
     }
 }
