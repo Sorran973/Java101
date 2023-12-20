@@ -1,4 +1,4 @@
-package ru.artembulkhak.leetcode.others;
+package ru.artembulkhak.leetcode.HashSet;
 
 import java.util.Arrays;
 import java.util.HashSet;
