@@ -22,6 +22,19 @@ public class BestTimeToBuyAndSellStock {
         return profit;
     }
 
+    public int maxProfitDP(int[] prices) {
+        int[][] dp = new int[prices.length][2];
+        dp[0][0] = prices[0];
+        dp[0][1] = 0;
+
+        for (int i = 1; i < prices.length; i++) {
+            dp[i][0] = Integer.min(dp[i - 1][0], prices[i]);
+            dp[i][1] = Integer.max(dp[i - 1][1], prices[i] - dp[i - 1][0]);
+        }
+
+        return dp[prices.length - 1][1];
+    }
+
     public static void main(String[] args) {
         System.out.println(new BestTimeToBuyAndSellStock().maxProfitTwoPointers(new int[]{2,4,1}));
     }
