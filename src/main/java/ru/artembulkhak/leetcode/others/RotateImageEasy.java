@@ -1,4 +1,4 @@
-package ru.artembulkhak.leetcode;
+package ru.artembulkhak.leetcode.others;
 
 
 public class RotateImageEasy {
