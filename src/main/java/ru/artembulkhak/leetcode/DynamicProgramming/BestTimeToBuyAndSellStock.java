@@ -1,4 +1,4 @@
-package ru.artembulkhak.leetcode.DP;
+package ru.artembulkhak.leetcode.DynamicProgramming;
 
 /**
  * https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/
