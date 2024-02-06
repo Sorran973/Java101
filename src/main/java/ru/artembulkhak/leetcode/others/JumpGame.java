@@ -6,10 +6,41 @@ package ru.artembulkhak.leetcode.others;
 
 public class JumpGame {
 
+    static boolean canJumpDP(int[] nums) {
+        boolean[] dp = new boolean[nums.length];
+        try {
+            jumpDP(nums, 0, dp);
+        } catch (RuntimeException e) {
+            return true;
+        }
+
+        return false;
+    }
+
+    static void jumpDP(int[] nums, int i, boolean[] dp) {
+        if (dp[i]) {
+            return;
+        }
+
+        dp[i] = true;
+
+        if (i + nums[i] >= nums.length - 1) {
+            throw new RuntimeException("true");
+        }
+        for (int j = i + 1; j <= i + nums[i]; j++) {
+            jumpDP(nums, j, dp);
+        }
+
+    }
+
     // Time Limit Exceeded because of Depth of Recursion Stack
     static boolean canJumpRecursion (int[] nums) {
-        if (nums[0] == 0) {
+        if (nums[0] == 0 && nums.length != 1) {
             return false;
+        }
+
+        if (0 == nums.length - 1) {
+            return true;
         }
 
         for (int i = 1; i <= nums[0]; i++) {
@@ -68,7 +99,8 @@ public class JumpGame {
 
     public static void main(String[] args) {
 //        System.out.println(canJumpRecursion(new int[]{1, 2, 3, 0, 4}));
+//        System.out.println(canJumpRecursion(new int[]{4, 2, 1, 0, 4}));
 //        System.out.println(canJumpRecursion(new int[]{0, 0, 0, 1, 4}));
-        System.out.println(canJumpRecursion(new int[]{2, 0, 3, 0, 4}));
+        System.out.println(canJumpDP(new int[]{2, 3, 1, 1, 4}));
     }
 }
