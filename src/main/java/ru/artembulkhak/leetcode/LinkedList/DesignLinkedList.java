@@ -1,5 +1,9 @@
 package ru.artembulkhak.leetcode.LinkedList;
 
+/**
+ * https://leetcode.com/problems/design-linked-list/description/
+ */
+
 public class DesignLinkedList {
 
     static class MyNode {
